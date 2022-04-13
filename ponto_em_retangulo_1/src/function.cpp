@@ -6,8 +6,36 @@
 
 location_t pt_in_rect( const Ponto &IE, const Ponto &SD, const Ponto &P )
 {
-    // TODO: Coloque aqui seu código.
+  location_t res;
 
-    // TODO: Substitua o retorno conforme desejar. Isso é apenas um STUB, usado apenas para compilar.
-    return location_t::OUTSIDE;
+  //Testa se está no retângulo
+  if(P.x >= IE.x && P.x <= SD.x || P.x <= IE.x && P.x >= SD.x)
+  {
+    if(P.y >= IE.y && P.y <= SD.y || P.y <= IE.y && P.y >= SD.y)
+    {
+      //Testa se está na borda
+      if(P.x == IE.x || P.x == SD.x)
+      {
+        res = BORDER;
+      }
+      else if(P.y == IE.y || P.y == SD.y){
+        res = BORDER;
+      }
+      //Caso contrário, dentro do retângulo
+      else
+      {
+        res = INSIDE;  
+      }
+    }
+    else
+    {
+      res = OUTSIDE;
+    }
+  }
+  //Caso contrário, fora do retângulo
+  else{
+    res = OUTSIDE;
+  }
+
+    return res;
 }
