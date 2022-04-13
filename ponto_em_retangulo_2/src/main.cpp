@@ -14,14 +14,57 @@ using std::max;
 
 #include "function.h"
 
-//=== Funções
-
-// Coloque aqui qualquer função auxiliar que desejar.
-
+string returnString(int status)
+{
+  string str;
+  //Testa retorno e define o status em string
+  if(status == 0)
+  {
+    str = "inside";
+  }
+  if(status == 1)
+  {
+    str = "border";
+  }
+  if(status == 2)
+  {
+    str = "outside";
+  }
+ 
+  return str;
+}
 
 int main(void)
 {
-    // TODO: Adicione aqui seu código.
+  enum location_t : int { INSIDE =0, BORDER =1, OUTSIDE =2 };
+  Ponto R1, R2, P;
+  
+  int status; 
+  string strStatus;
+  while(true)
+  {
+    //Entrada
+    std::cin >> R1.x >> R1.y;//Ponto esquerda, baixo do retângulo
+    std::cin >> R2.x >> R2.y;//Ponto direita, cima do retângulo
+    std::cin >> P.x >> P.y;  //Ponto a ser testado
+
+    //Testa se é válido
+    if(R1.x == R2.x && R1.y == R2.y)
+    {
+      strStatus = "invalid";
+    }
+    //Caso contrário, é válido
+    else
+    {
+      //Chamada de função
+      status = pt_in_rect( R1, R2, P );
+    
+      //Chamada de função
+      strStatus = returnString(status);
+    }
+    //Saída
+    std::cout << strStatus << std::endl;    
+  }
 
     return 0;
 }
