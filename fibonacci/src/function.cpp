@@ -19,7 +19,7 @@ std::vector<unsigned int> fib_below_n( unsigned int n )
       }
       else
       {
-        break;
+        break; // evite esse tipo de lógica, todo laço deve ter sua expressão
       }
       //Repassando valores
       n1 = n2;

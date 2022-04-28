@@ -12,6 +12,7 @@
 
 std::pair<int,int> min_max( int V[], std::size_t n )
 {
+  // faltou tratar o caso n == 0 retornando {-1,-1}
     int maior = 0, menor = 0;
     pair <int, int> mM;
   
